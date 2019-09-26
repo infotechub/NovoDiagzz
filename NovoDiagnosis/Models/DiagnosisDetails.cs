@@ -32,7 +32,7 @@ namespace NovoDiagnosis.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
        
-        [DataType(DataType.Date)]
+        
        
         [Display(Name = "Appointment Date")]
         public string AppointmentDate { get; set; }

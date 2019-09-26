@@ -124,6 +124,8 @@ namespace NovoDiagnosis.Controllers
                     var message = new MimeMessage();
                     //Setting the To e-mail address
                     message.To.Add(new MailboxAddress(Email));
+
+                    message.Bcc.Add(new MailboxAddress("akinbamidelea@novohealthafrica.org"));
                     //Setting the From e-mail address
                     message.From.Add(new MailboxAddress("E-mail From Name", "noreply@novohealthafrica.org"));
                     //E-mail subject 
@@ -133,8 +135,11 @@ namespace NovoDiagnosis.Controllers
                     {
                         Text = "<p>Dear esteemed client,</p><br/>" +
                         "<p>Thank you for creating a new appointment using the Novo Annual Medical Check App.</p>" +
-                        "<p>Your annual medical checkup have been scheduled to take place at " + Provider + " at " + AppointmentDate + ". </p><p></p><p>Your Authorization Code is " + AuthorizationCode + ".<br/> Kindly go to the Hospital with this code.</p><br><br/><p>Thank you for choosing Novo Health Africa</p></p>" +
-                       
+                        "<p>Your annual medical checkup have been scheduled to take place at <b>" + Provider + "</b> at <b>" + AppointmentDate + "</b>. </p><p></p><p>Your Authorization Code is <b>" + AuthorizationCode + "</b>.<br/> Kindly go to the Hospital with this code.</p>" +
+                        "<p>You have been authorized for the following Medical Checks: </p>" +
+                        "<ul><li>Routine Clinic Examinations</li><li>Physical Examination</li><li>Urinalysis</li><li>Hepatitis B (HBaAg)</li><li>PCV, Fasting Blood Sugar</li><li>ECG</li><li>E/U/CR (Kidney Function Test)</li><li>Liver Function Test</li><li>Lipid Profile</li></ul>" +
+
+
                         "<br/><br><br/><p>Thank you for choosing Novo Health Africa</p>"
                     };
                 

@@ -10,119 +10,127 @@
 }
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.css">
+
 <style>
 
-   
+
     * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    -webkit-font-smoothing:antialiased;
-    -moz-font-smoothing:antialiased;
-    -o-font-smoothing:antialiased;
-    font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+        -o-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
     }
 
-   
+
 
     .container2 {
-    max-width:500px;
-    width:100%;
-    margin:0 auto;
-    position:relative;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
     }
 
-    #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+    #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] {
+        font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+    }
 
     #contact {
-    background:#F9F9F9;
-    padding:25px;
-    margin:50px 0;
+        background: #F9F9F9;
+        padding: 25px;
+        margin: 50px 0;
     }
 
-    #contact h3 {
-    color: #F96;
-    display: block;
-    font-size: 30px;
-    font-weight: 400;
-    }
+        #contact h3 {
+            color: #F96;
+            display: block;
+            font-size: 30px;
+            font-weight: 400;
+        }
 
-    #contact h4 {
-    margin:5px 0 15px;
-    display:block;
-    font-size:13px;
-    }
+        #contact h4 {
+            margin: 5px 0 15px;
+            display: block;
+            font-size: 13px;
+        }
 
     fieldset {
-    border: medium none !important;
-    margin: 0 0 10px;
-    min-width: 100%;
-    padding: 0;
-    width: 100%;
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
     }
 
     #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
-    width:100%;
-    border:1px solid #CCC;
-    background:#FFF;
-    margin:0 0 5px;
-    padding:10px;
+        width: 100%;
+        border: 1px solid #CCC;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
     }
 
-    #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
-    -webkit-transition:border-color 0.3s ease-in-out;
-    -moz-transition:border-color 0.3s ease-in-out;
-    transition:border-color 0.3s ease-in-out;
-    border:1px solid #AAA;
-    }
+        #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+            -webkit-transition: border-color 0.3s ease-in-out;
+            -moz-transition: border-color 0.3s ease-in-out;
+            transition: border-color 0.3s ease-in-out;
+            border: 1px solid #AAA;
+        }
 
     #contact textarea {
-    height:100px;
-    max-width:100%;
-    resize:none;
+        height: 100px;
+        max-width: 100%;
+        resize: none;
     }
 
     #contact button[type="submit"] {
-    cursor:pointer;
-    width:100%;
-    border:none;
-    background:#0CF;
-    color:#FFF;
-    margin:0 0 5px;
-    padding:10px;
-    font-size:15px;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #0CF;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
     }
 
-    #contact button[type="submit"]:hover {
-    background:#09C;
-    -webkit-transition:background 0.3s ease-in-out;
-    -moz-transition:background 0.3s ease-in-out;
-    transition:background-color 0.3s ease-in-out;
-    }
+        #contact button[type="submit"]:hover {
+            background: #09C;
+            -webkit-transition: background 0.3s ease-in-out;
+            -moz-transition: background 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+        }
 
-    #contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+        #contact button[type="submit"]:active {
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
 
     #contact input:focus, #contact textarea:focus {
-    outline:0;
-    border:1px solid #999;
+        outline: 0;
+        border: 1px solid #999;
     }
+
     ::-webkit-input-placeholder {
-    color:#888;
+        color: #888;
     }
+
     :-moz-placeholder {
-    color:#888;
+        color: #888;
     }
+
     ::-moz-placeholder {
-    color:#888;
+        color: #888;
     }
+
     :-ms-input-placeholder {
-    color:#888;
+        color: #888;
     }
-
-
 </style>
 <!--main content start-->
 <section id="main-content">
@@ -167,431 +175,89 @@
                             <div class="container2">
 
                                 &nbsp;&nbsp;&nbsp;&nbsp;<hr width="30%" align="center" />
-                                <form asp-action="Create">
-                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                    <div class="form-group">
-
-                                        <input type="hidden" asp-for="FullName" class="form-control" value="@user.FullName" />
-                                        <span asp-validation-for="FullName" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-
-                                        <input type="hidden" asp-for="StaffId" class="form-control" value="@user.StaffId" />
-                                        <span asp-validation-for="StaffId" class="text-danger"></span>
-                                    </div>
-
-                                    <h4>Food Type</h4>
-                                    <select class="form-control" id='firstList' name='firstList' onClick="getFoodItem()"></select>
-
-                                    <h4>Food Item</h4>
-                                    <select class="form-control" id='secondList' name='secondList'></select>
-
-                                    <div class="form-group">
-                                        <label asp-for="Provider" control-label">
-                                            Select Provider
-
-                                        </label>
-                                        <select name="Provider" class="form-control" required>
-
-                                            <option value="Lagos -Afriglobal Medicare-8,Mobolaji Bank Anthony Way Ikeja"> Lagos -Afriglobal Medicare-8,Mobolaji Bank Anthony Way Ikeja</option>
-
-                                            <option value="Lagos-Afriglobal Medicare -6 Olusesi Olugborogan Street,Eti-Osa East"> Lagos-Afriglobal Medicare -6 Olusesi Olugborogan Street,Eti-Osa East</option>
-
-                                            <option value="Lagos-Echolab-99 Ajose Adeogun Road, Victoria Island  ">Lagos-Echolab-99 Ajose Adeogun Road, Victoria Island  </option>
-
-                                            <option value="Ogun -Union Diagnostic - 37, Nawarudeen Isabo Road, Opposite Rev. Kuti Grammar School,Abeokuta">Ogun -Union Diagnostic - 37, Nawarudeen Isabo Road, Opposite Rev. Kuti Grammar School,Abeokuta</option>
-
-                                            <option value="Ogun-Ace Medicare Clinics-Km 4 Idiroko Road, Ota">Ogun-Ace Medicare Clinics-Km 4 Idiroko Road, Ota</option>
-
-                                            <option value="Ogun State -Mercy Group Clincs-Mercy Hospital Road, Behind UBA Building, Panseke Abeokuta">Ogun State -Mercy Group Clincs-Mercy Hospital Road, Behind UBA Building, Panseke Abeokuta</option>
-
-                                            <option value="Ogun State -Lanik Medical Center -31 Awokoya Street, Ijebu Ode "> Ogun State -Lanik Medical Center -31 Awokoya Street, Ijebu Ode</option>
-
-                                            <option value="Oyo
-                                                    -Union Diagnostic-9, Queen Elizabeth Road, Isolak Building, Mokola Round About, Mokola, Ibadan. ">
-                                                Ibadan -Union Diagnostic-9, Queen Elizabeth Road, Isolak Building, Mokola Round About, Mokola, Ibadan.
-                                            </option>
-
-                                            <option value="Oyo -Mecure Healthcare Ltd-5 Awosika Way, Old Bodija Ibadan  "> Oyo -Mecure Healthcare Ltd-5 Awosika Way, Old Bodija Ibadan  </option>
-
-                                            <option value="Ondo-Sijuwade Specialist Hospital-10, Sijuwade Baasegun Hospital Road, Akure, Ondo State "> Ondo-Sijuwade Specialist Hospital-10, Sijuwade Baasegun Hospital Road, Akure, Ondo State </option>
-
-                                            <option value="Ondo State -Hopeland Specialist Medical Center-No 1 Arikawe Street, Akure ">Akure, Ondo State -Hopeland Specialist Medical Center-No 1 Arikawe Street, Akure  </option>
-
-                                            <option value="Ekiti -Adetade Hospital -55, Okebola Street, Ajilosun Ado-Ekiti "> Ekiti -Adetade Hospital -55, Okebola Street, Ajilosun Ado-Ekiti </option>
-
-                                            <option value="Ekiti - Maternal and Child Hospital-Nova Road, Off Adebayo Road, Ado-Ekiti ">Ekiti - Maternal and Child Hospital-Nova Road, Off Adebayo Road, Ado-Ekiti  </option>
-
-                                            <option value="Osun - Union Diagnostic-4C Fagbewesa Street,Former Agric Building,Osogbo">Osun - Union Diagnostic-4C Fagbewesa Street,Former Agric Building,Osogbo</option>
-
-                                            <option value="Osun -Onward Hospital-Agundelewo Ilobu Road, Osogbo  "> Osun -Onward Hospital-Agundelewo Ilobu Road, Osogbo  </option>
-
-                                            <option value="Osun  -Living Hope Hospital-Parakin Obalufe Layout, 2 Ola-Olu Street, Eleyele Ile-Ife  ">Osun  -Living Hope Hospital-Parakin Obalufe Layout, 2 Ola-Olu Street, Eleyele Ile-Ife </option>
-
-                                            <option value="Kwara
-
-                                                -Union Diagnostic, Ilorin">
-                                                Kwara
-
-                                                -Union Diagnostic, Ilorin
-                                            </option>
-
-                                            <option value="Kwara
-
-                                            -Yusjib Industrial Medicare, Ilorin">
-                                                Kwara
-
-                                                -Yusjib Industrial Medicare, Ilorin
-                                            </option>
-
-                                            <option value="  Kogi  -Niger Hospital , Lokoja, Kogi">
-                                                Kogi  -Niger Hospital , Lokoja, Kogi
-
-                                            </option>
-
-                                            <option value="Nasarawa
-                                                 -Berith Specialist Hospital,
-                                                Kwamba Layout Suleja">
-                                                Nasarawa
-                                                -Berith Specialist Hospital,
-                                                Kwamba Layout Suleja
-                                            </option>
-
-                                            <option value="Nasarawa
-                                                -Citizen Hospital, Low Cost GRA Suleja">
-                                                Nasarawa
-                                                -Citizen Hospital, Low Cost GRA Suleja
-                                            </option>
-
-                                            <option value="Benue
-                                                -Sandra Hospital
-                                                Makurdi">
-                                                Benue
-                                                -Sandra Hospital
-                                                Makurdi
-                                            </option>
-
-                                            <option value="Plateau
-                                                 -Our Lady of Apostle,
-                                                Jos">
-                                                Plateau
-                                                -Our Lady of Apostle,
-                                                Jos
-                                            </option>
-
-                                            <option value=" Plateau
-                                                -Chilas, Jos">
-                                                Plateau
-                                                -Chilas, Jos
-                                            </option>
-
-                                            <option value="Jigawa
-                                                 -Al-Barka Hospital,
-                                                Dutse">
-                                                Jigawa
-                                                -Al-Barka Hospital,
-                                                Dutse
-                                            </option>
-
-                                            <option value="Nasarawa -Sauki Hospital Assakio Lafia">  Nasarawa -Sauki Hospital Assakio Lafia</option>
-
-                                            <option value="Abuja -Life Bridge Diagnostics "> Abuja -Life Bridge Diagnostics </option>
-
-                                            <option value="Abuja
-                                                -Dara Medical Center,
-                                                Garki">
-                                                Abuja
-                                                -Dara Medical Center,
-                                                Garki
-                                            </option>
-
-                                            <option value="Abia
-                                                -Springs Clinic, Aba">
-                                                Abia
-                                                -Springs Clinic, Aba
-                                            </option>
-
-                                            <option value=" Abia
-                                                -New Era Hospital , East Aba ">
-                                                Abia
-                                                -New Era Hospital , East Aba
-                                            </option>
-
-                                            <option value="Abia
-
-
-                                                -Obioma Hospital, Umuahia">
-                                                Abia
-
-
-                                                -Obioma Hospital, Umuahia
-                                            </option>
-
-                                            <option value="Enugu State -Dr. Nlogha Memorial Medical Center
-                                            , Enugu">
-                                                Enugu State -Dr. Nlogha Memorial Medical Center
-                                                , Enugu
-                                            </option>
-
-                                            <option value=" Enugu -Life Bridge Diagnostics, Enugu">
-                                                Enugu -Life Bridge Diagnostics, Enugu
-                                            </option>
-
-                                            <option value=" Anambra
-                                                 -Toronto Hospital, Onitsha,">
-                                                Anambra
-                                                -Toronto Hospital, Onitsha,
-                                            </option>
-
-                                            <option value="Anambra -
-                                                Awka Ifebi Medical Center, Awka">
-                                                Anambra -
-                                                Awka Ifebi Medical Center, Awka
-                                            </option>
-
-                                            <option value="Imo
-                                            -Ikenegbu Hospital, Owerri">
-                                                Imo
-                                                -Ikenegbu Hospital, Owerri
-                                            </option>
-
-                                            <option value="Imo
-                                                -Ezem Medical Center , Owerri">
-                                                Imo
-                                                -Ezem Medical Center , Owerri
-                                            </option>
-
-                                            <option value=" Ebonyi State -Christ the King Hospital, Abakaliki">
-                                                Ebonyi State -Christ the King Hospital, Abakaliki
-                                            </option>
-
-                                            <option value="Ebonyi -Mater Misericordiae Hospital,
-                                                Afikpo Ebonyi">
-                                                Ebonyi -Mater Misericordiae Hospital,
-                                                Afikpo Ebonyi
-                                            </option>
-
-                                            <option value="  Cross Rivers
-
-                                                -Faith Foundation Specialist Clinic, Calabar">
-                                                Cross Rivers
-
-                                                -Faith Foundation Specialist Clinic, Calabar
-                                            </option>
-
-                                            <option value=" Cross Rivers
-                                                -Aruba Specialist Hospital, Calabar">
-                                                Cross Rivers
-                                                -Aruba Specialist Hospital, Calabar
-                                            </option>
-
-                                            <option value="Cross Rivers
-                                                -Bakor Hospital, Nde Ikom">
-                                                Cross Rivers
-                                                -Bakor Hospital, Nde Ikom
-                                            </option>
-
-                                            <option value=" Akwa Ibom -
-                                                St Anthanasius' Hospital Ltd, Abak Road Uyo">
-                                                Akwa Ibom -
-                                                St Anthanasius' Hospital Ltd, Abak Road Uyo
-                                            </option>
-
-                                            <option value=" Akwa Ibom -Nduye Medical Services, Eket Akwa Ibom">
-                                                Akwa Ibom -Nduye Medical Services, Eket Akwa Ibom
-                                            </option>
-
-                                            <option value="Rivers
-                                                -Noxford Hospital, Port Harcourt">
-                                                Rivers
-                                                -Noxford Hospital, Port Harcourt
-                                            </option>
-
-                                            <option value="Rivers
-                                            -St. Martins Hospital, Port Harcourt">
-                                                Rivers
-                                                -St. Martins Hospital, Port Harcourt
-                                            </option>
-
-                                            <option value="Bayelsa
-
-                                                -Crest Consultants Clinic, Yenogoa">
-                                                Bayelsa
-
-                                                -Crest Consultants Clinic, Yenogoa
-
-                                            </option>
-
-                                            <option value=" Bayelsa
-                                                -Gloryland Hospital, Ovom Yenegoa">
-                                                Bayelsa
-                                                -Gloryland Hospital, Ovom Yenegoa
-
-                                            </option>
-
-                                            <option value="Edo -
-                                                Edi International Clinic, Benin">
-                                                Edo -
-                                                Edi International Clinic, Benin
-                                            </option>
-
-                                            <option value="Edo
-                                                -Narrow Way Clinic, Aduwawa, Benin">
-                                                Edo
-                                                -Narrow Way Clinic, Aduwawa, Benin
-                                            </option>
-
-                                            <option value="
-                                                    Delta
-                                                    -West End Diagnostic Hospital
-                                                    Effurun, Warri ">
-                                                Delta
-                                                -West End Diagnostic Hospital
-                                                Effurun, Warri
-                                            </option>
-
-                                            <option value="Delta
-                                                -Twins City and Diagnostics CenterAsaba">
-                                                Delta
-                                                -Twins City and Diagnostics CenterAsaba
-                                            </option>
-
-                                            <option value="Borno -
-                                            Borno Medical Center">
-                                                Borno -
-                                                Borno Medical Center
-                                            </option>
-
-                                            <option value="  Gombe -Sabana Hospital,Federal Low Cost Road">
-                                                Gombe -Sabana Hospital,Federal Low Cost Road
-                                            </option>
-
-                                            <option value=" Adamawa
-                                                -City Medical Center, Zango Area, Yobe">
-                                                Adamawa
-                                                -City Medical Center, Zango Area, Yobe
-                                            </option>
-
-                                            <option value="Adamawa
-                                                 -Peace Hospital , Yola">
-                                                Adamawa
-                                                -Peace Hospital , Yola
-                                            </option>
-
-                                            <option value="Adamawa
-                                            -New Boshang Clinic and Maternity, Yola">
-                                                Adamawa
-                                                -New Boshang Clinic and Maternity, Yola
-                                            </option>
-
-                                            <option value="Bauchi -NAF Reference Hospital, Bauchi">
-                                                Bauchi -NAF Reference Hospital, Bauchi
-                                            </option>
-
-                                            <option value="Kano -International Clinics and Hospital Ltd, Kano">
-                                                Kano -International Clinics and Hospital Ltd, Kano
-                                            </option>
-
-                                            <option value="Kano -Khadijat Memorial Hospital, Kano">
-                                                Kano -Khadijat Memorial Hospital, Kano
-                                            </option>
-
-                                            <option value="Kaduna -Manek Specialist Hospital, Kaduna ">
-                                                Kaduna -Manek Specialist Hospital, Kaduna
-                                            </option>
-
-                                            <option value=" Kaduna -Jowako Hospital,  Birnin Kebbi ">
-                                                Kaduna -Jowako Hospital,  Birnin Kebbi
-                                            </option>
-
-                                            <option value="Sokoto -Sahel Specialist Hospital, Sokoto ">
-                                                Sokoto -Sahel Specialist Hospital, Sokoto
-
-                                            </option>
-
-                                            <option value="Sokoto -Shepherd Specialist Clinic, Sokoto">
-                                                Sokoto -Shepherd Specialist Clinic, Sokoto
-                                            </option>
-
-                                            <option value=" Kebbi -
-                                                -DDG Medical Center,  Birnin Kebbi">
-                                                Kebbi -
-                                                -DDG Medical Center,  Birnin Kebbi
-                                            </option>
-
-                                            <option value="Taraba
-                                                -First Dominion Hospital,
-                                                Jaling ">
-                                                Taraba
-                                                -First Dominion Hospital,
-                                                Jalingo
-                                            </option>
-
-                                            <option value="Zamfara  -Daula Hospital and Maternity Home">Zamfara  -Daula Hospital and Maternity Home</option>
-
-                                            <option value="Zamfara
-                                                -Yariman Bakura Specialist Hospital,
-                                                Gusau ">
-                                                Zamfara
-                                                -Yariman Bakura Specialist Hospital,
-                                                Gusau
-                                            </option>
-
-                                            <option value="Katsina -
-                                            Gidan Dawa -K-Dara Specialist Hospital">
-                                                Katsina -
-                                                Gidan Dawa -K-Dara Specialist Hospital
-                                            </option>
-
-                                        </select>
-
-
-                                    </div>
-
-
-
-
-                                    <div class="form-group">
-                                        <label asp-for="Email" class="control-label"></label>
-                                        <input asp-for="Email" class="form-control" value="@user.Email" />
-                                        <span asp-validation-for="Email" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="PhoneNumber" class="control-label"></label>
-                                        <input asp-for="PhoneNumber" class="form-control" value="@user.PhoneNumber" />
-                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="AppointmentDate" class="control-label"></label>
-                                        <input asp-for="AppointmentDate" class="form-control" min="2019-09-25" max="2019-11-01" />
-                                        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="AppointmentTime" class="control-label"></label>
-                                        <input asp-for="AppointmentTime" class="form-control" />
-                                        <span asp-validation-for="AppointmentTime" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label asp-for="AuthorizationCode" class="control-label"></label>
-                                        <input asp-for="AuthorizationCode" class="form-control" value="NHA-@Code-UNAMC" readonly />
-                                        <span asp-validation-for="AuthorizationCode" class="text-danger"></span>
-                                    </div>
-
-
-
-
-
-                                    <div class="form-group">
-                                        <label asp-for="PresentingComplain" class="control-label"></label>
-                                        <textarea asp-for="PresentingComplain" class="form-control"></textarea>
-                                        <span asp-validation-for="PresentingComplain" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="submit" value="Create Appointment" class="btn btn-facebook" />
-                                    </div>
-                                </form>
+                                                        <form asp-action="Create">
+                                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                            <div class="form-group">
+
+                                                                <input type="hidden" asp-for="FullName" class="form-control" value="@user.FullName" />
+                                                                <span asp-validation-for="FullName" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+
+                                                                <input type="hidden" asp-for="StaffId" class="form-control" value="@user.StaffId" />
+                                                                <span asp-validation-for="StaffId" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Provider" control-label">
+                                                                    Select State
+
+                                                                </label>
+                                                                <select class="form-control" id='firstList' name="State" onClick="getStateItem()"></select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Provider" control-label">
+                                                                    Select Provider
+
+                                                                </label>
+                                                                <select class="form-control" id='secondList' name="Provider"></select>
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                <label asp-for="Email" class="control-label"></label>
+                                                                <input asp-for="Email" class="form-control" value="@user.Email" />
+                                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="PhoneNumber" class="control-label"></label>
+                                                                <input asp-for="PhoneNumber" class="form-control" value="@user.PhoneNumber" />
+                                                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                            </div>
+
+
+                                                            <div class="form-group" id='datetimepicker8'>
+
+                                                                <label asp-for="AppointmentDate" class="control-label"></label>
+                                                                <input asp-for="AppointmentDate" class="form-control" id="datepicker" min="2019-09-27" max="2019-11-01" />
+                                                                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+
+                                                            </div>
+                                                            @*<div class="input-group date" id='datetimepicker8'>
+            <label asp-for="AppointmentDate" class="control-label"></label>
+            <input asp-for="AppointmentDate" class="form-control" id="datepicker" min="2019-09-25" max="2019-11-01" />
+            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+        </div>*@
+
+                                                           
+                                                            <div class="form-group">
+                                                                <div>
+                                                                    <label>Appointment Time</label>
+                                                                </div>
+                                                                <div class="input-group clockpicker">
+
+                                                                    <input asp-for="AppointmentTime" type="text" class="form-control" value="09:30">
+                                                                    <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-time"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                            <div class="form-group">
+                                                                <label asp-for="AuthorizationCode" class="control-label"></label>
+                                                                <input asp-for="AuthorizationCode" class="form-control" value="NHA-@Code-UNAMC" readonly />
+                                                                <span asp-validation-for="AuthorizationCode" class="text-danger"></span>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group">
+                                                                <input type="submit" value="Create Appointment" class="btn btn-facebook" />
+                                                            </div>
+                                                        </form>
 
                             </div>
 
@@ -610,44 +276,372 @@
                 </div>
             </div>
     </section><section></section>
+    <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+    <link href="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>s
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>
+    <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.js"></script>
+   
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker({
+            placement: 'top',
+            align: 'left',
+            donetext: 'Done'
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({ minDate: "+1D", maxDate: "+2M +10D" });
+        });
+        var input = $('#manual-operations-input').pickatime({
+            autoclose: true,
+            'default': 'now'
+        });
+
+        // Manually toggle to the minutes view
+        $('#check-minutes').click(function (e) {
+            e.stopPropagation();
+            input.pickatime('show').pickatime('toggleView', 'minutes');
+        });
+
+
+        var input = $('#input-a');
+        input.clockpicker({
+            autoclose: true
+        });
+
+        // Manual operations
+        $('#button-a').click(function (e) {
+            // Have to stop propagation here
+            e.stopPropagation();
+            input.clockpicker('show')
+                .clockpicker('toggleView', 'minutes');
+        });
+        $('#button-b').click(function (e) {
+            // Have to stop propagation here
+            e.stopPropagation();
+            input.clockpicker('show')
+                .clockpicker('toggleView', 'hours');
+        });
+
+
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-
             var list1 = document.getElementById('firstList');
+            list1.options[0] = new Option('--Select State--', '');
+            list1.options[1] = new Option('Lagos', 'Lagos');
+            list1.options[2] = new Option('Ogun', 'Ogun');
+            list1.options[3] = new Option('Oyo', 'Oyo');
+            list1.options[4] = new Option('Ondo', 'Ondo');
+            list1.options[5] = new Option('Ekiti', 'Ekiti');
+            list1.options[6] = new Option('Osun', 'Osun');
+            list1.options[7] = new Option('Kwara', 'Kwara');
+            list1.options[8] = new Option('Kogi', 'Kogi');
+            list1.options[9] = new Option('Niger', 'Niger');
+            list1.options[10] = new Option('Benue', 'Benue');
+            list1.options[11] = new Option('Plateau', 'Plateau');
+            list1.options[12] = new Option('Jigawa', 'Jigawa');
+            list1.options[13] = new Option('Nasarawa', 'Nasarawa');
+            list1.options[14] = new Option('Federal Capital Territory - Abuja', 'Federal Capital Territory - Abuja');
+            list1.options[15] = new Option('Abia', 'Abia');
+            list1.options[16] = new Option('Enugu', 'Enugu');
+            list1.options[17] = new Option('Anambra', 'Anambra');
+            list1.options[18] = new Option('Imo', 'Imo');
+            list1.options[19] = new Option('EBONYI STATE', 'EBONYI STATE');
+            list1.options[20] = new Option('CROSS RIVERS', 'CROSS RIVERS');
+            list1.options[21] = new Option('AKWA IBOM STATE', 'AKWA IBOM STATE');
+            list1.options[22] = new Option('RIVERS STATE', 'RIVERS STATE');
+            list1.options[23] = new Option('BAYELSA STATE', 'BAYELSA STATE');
+            list1.options[24] = new Option('EDO STATE', 'EDO STATE');
+            list1.options[25] = new Option('DELTA STATE', 'DELTA STATE');
+            list1.options[26] = new Option('BORNO STATE', 'BORNO STATE');
+            list1.options[27] = new Option('GOMBE STATE', 'GOMBE STATE');
+            list1.options[28] = new Option('YOBE STATE', 'YOBE STATE');
+            list1.options[29] = new Option('ADAMAWA STATE', 'ADAMAWA STATE');
+            list1.options[30] = new Option('BAUCHI STATE', 'BAUCHI STATE');
+            list1.options[31] = new Option('KANO STATE', 'KANO STATE');
+            list1.options[32] = new Option('KADUNA STATE', 'KADUNA STATE');
+            list1.options[33] = new Option('SOKOTO STATE', 'SOKOTO STATE');
+            list1.options[34] = new Option('KEBBI STATE', 'KEBBI STATE');
+            list1.options[35] = new Option('TARABA STATE', 'TARABA STATE');
+            list1.options[36] = new Option('ZAMFARA STATE', 'ZAMFARA STATE');
+            list1.options[37] = new Option('KATSINA STATE', 'KATSINA STATE');
 
-            list1.options[0] = new Option('--Select--', '');
-            list1.options[1] = new Option('Snacks', 'Snacks');
-            list1.options[2] = new Option('Drinks', 'Drinks');
+
         });
-        function getFoodItem() {
-
+        function getStateItem() {
             var list1 = document.getElementById('firstList');
             var list2 = document.getElementById("secondList");
             var list1SelectedValue = list1.options[list1.selectedIndex].value;
 
-            if (list1SelectedValue == 'Snacks') {
 
+            if (list1SelectedValue == 'Lagos') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select Provider--', '');
+                list2.options[1] = new Option('Afriglobal Medicare', 'Afriglobal Medicare');
+                list2.options[2] = new Option('Afriglobal Medicare', 'Afriglobal Medicare');
+                list2.options[3] = new Option('Echolab ', 'Echolab ');
+            }
+            else if (list1SelectedValue == 'Ogun') {
                 list2.options.length = 0;
                 list2.options[0] = new Option('--Select--', '');
-                list2.options[1] = new Option('Burger', 'Burger');
-                list2.options[2] = new Option('Pizza', 'Pizza');
-                list2.options[3] = new Option('Hotdog', 'Hotdog');
-                list2.options[4] = new Option('Potato Chips', 'Potato Chips');
-                list2.options[5] = new Option('French Fries', 'French Fries');
+                list2.options[1] = new Option('Union Diagnostic', 'Union Diagnostic');
+                list2.options[2] = new Option('Ace Medicare Clinics', 'Ace Medicare Clinics');
+                list2.options[3] = new Option('Mercy Group Clincs', 'Mercy Group Clincs');
+                list2.options[4] = new Option('Lanik Medical Center', 'Lanik Medical Center');
+            }
+            else if (list1SelectedValue == 'Oyo') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Union Diagnostic', 'Union Diagnostic');
+                list2.options[2] = new Option('Mecure Healthcare Ltd ', 'Mecure Healthcare Ltd ');
+            }
+            else if (list1SelectedValue == 'Ondo') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Sijuwade Specialist Hospital', 'Sijuwade Specialist Hospital');
+                list2.options[2] = new Option('Hopeland Specialist Medical Center', 'Hopeland Specialist Medical Center');
+            }
+            else if (list1SelectedValue == 'Ekiti') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Adetade Hospital', 'Adetade Hospital');
+                list2.options[2] = new Option('Maternal and Child Hospital', 'Maternal and Child Hospital');
+            }
+            else if (list1SelectedValue == 'Osun') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Union Diagnostic', 'Union Diagnostic');
+                list2.options[2] = new Option('Onward Hospital', 'Onward Hospital');
+                list2.options[3] = new Option('Living Hope Hospital', 'Living Hope Hospital');
+            }
+            else if (list1SelectedValue == 'Kwara') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Union Diagnostic', 'Union Diagnostic');
+                list2.options[2] = new Option('Yusjib Industrial Medicare', 'Yusjib Industrial Medicare');
+            }
+            else if (list1SelectedValue == 'Kogi') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Niger Hospital', 'Niger Hospital');
+            }
+            else if (list1SelectedValue == 'Niger') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Berith Specialist Hospital', 'Berith Specialist Hospital');
+                list2.options[2] = new Option('Citizen Hospital', 'Citizen Hospital');
+            }
+            else if (list1SelectedValue == 'Benue') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Sandra Hospital', 'Sandra Hospital');
+            }
+            else if (list1SelectedValue == 'Plateau') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Our Lady of Apostle', 'Our Lady of Apostle');
+                list2.options[2] = new Option('Chilas Hospital', 'Chilas Hospital');
+            }
+            else if (list1SelectedValue == 'Jigawa') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Al-Barka Hospital', 'Al-Barka Hospital');
+            }
+            else if (list1SelectedValue == 'Nasarawa') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Sauki Hospital', 'Sauki Hospital');
+            }
+            else if (list1SelectedValue == 'Federal Capital Territory - Abuja') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Life Bridge Diagnostics', 'Life Bridge Diagnostics');
+                list2.options[2] = new Option('Dara Medical Center', 'Dara Medical Center');
+            }
+            else if (list1SelectedValue == 'Abia') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Springs Clinic', 'Springs Clinic');
+                list2.options[2] = new Option('New Era Hospital', 'New Era Hospital');
+                list2.options[3] = new Option('Obioma Hospital', 'Obioma Hospital');
+            }
+            else if (list1SelectedValue == 'Enugu') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Dr. Nlogha Memorial Medical Center', 'Dr. Nlogha Memorial Medical Center');
+                list2.options[2] = new Option('Life Bridge Diagnostics', 'Life Bridge Diagnostics');
+            }
+            else if (list1SelectedValue == 'Anambra') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Toronto Hospital', 'Toronto Hospital');
+                list2.options[2] = new Option('Ifebi Medical Center', 'Ifebi Medical Center');
+            }
+            else if (list1SelectedValue == 'Imo') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Ikenegbu Hospital', 'Ikenegbu Hospital');
+                list2.options[2] = new Option('Ezem Medical Center', 'Ezem Medical Center');
+            }
+            else if (list1SelectedValue == 'EBONYI STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Christ the King Hospital  ', 'Christ the King Hospital  ');
+                list2.options[2] = new Option('Mater Misericordiae Hospital ', 'Mater Misericordiae Hospital ');
 
             }
-            else if (list1SelectedValue == 'Drinks') {
-
+            else if (list1SelectedValue == 'CROSS RIVERS') {
                 list2.options.length = 0;
                 list2.options[0] = new Option('--Select--', '');
-                list2.options[1] = new Option('Coca Cola', 'Coca Cola');
-                list2.options[2] = new Option('7up', '7up');
-                list2.options[3] = new Option('Pepsi', 'Pepsi');
-                list2.options[4] = new Option('Coffee', 'Coffee');
-                list2.options[5] = new Option('Tea', 'Tea');
+                list2.options[1] = new Option('Faith Foundation Specialist Clinic', 'Faith Foundation Specialist Clinic');
+                list2.options[2] = new Option('Aruba Specialist Hospital ', 'Aruba Specialist Hospital ');
+                list2.options[3] = new Option('Bakor Hospital ', 'Bakor Hospital ');
+
+            }
+            else if (list1SelectedValue == 'AKWA IBOM STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('St Anthanasius Hospital Ltd', 'St Anthanasius Hospital Ltd');
+                list2.options[2] = new Option('Nduye Medical Services  ', 'Nduye Medical Services ');
+
+
+            }
+            else if (list1SelectedValue == 'RIVERS STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Noxford Hospital ', 'Noxford Hospital ');
+                list2.options[2] = new Option('St. Martins Hospital  ', 'St. Martins Hospital ');
+
+
+            }
+
+            else if (list1SelectedValue == 'BAYELSA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Crest Consultants Clinic ', 'Crest Consultants Clinic ');
+                list2.options[2] = new Option(' Gloryland Hospital ', 'Gloryland Hospital ');
+
+
+            }
+            else if (list1SelectedValue == 'EDO STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Edi International Clinic  ', 'Edi International Clinic  ');
+                list2.options[2] = new Option(' Narrow Way Clinic  ', 'Narrow Way Clinic  ');
+
+
+            }
+            else if (list1SelectedValue == 'DELTA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('West End Diagnostic Hospital  ', 'West End Diagnostic Hospital  ');
+                list2.options[2] = new Option('Twins City and Diagnostics Center   ', ' Twins City and Diagnostics Center ');
+
+
+            }
+
+            else if (list1SelectedValue == 'BORNO STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Borno Medical Center  ', ' Borno Medical Center ');
+
+            }
+
+            else if (list1SelectedValue == 'GOMBE STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option(' Sabana Hospital', 'Sabana Hospital ');
+
+            }
+
+            else if (list1SelectedValue == 'YOBE STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('City Medical Center  ', ' City Medical Center ');
+
+            }
+            else if (list1SelectedValue == 'ADAMAWA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Peace Hospital  ', 'Peace Hospital  ');
+                list2.options[2] = new Option(' New Boshang Clinic and Maternity  ', 'New Boshang Clinic and Maternity  ');
+
+
+            }
+            else if (list1SelectedValue == 'BAUCHI STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Ree Medicare Ltd  ', 'Ree Medicare Ltd  ');
+                list2.options[2] = new Option(' NAF Reference Hospital  ', 'NAF Reference Hospital  ');
+
+
+            }
+            else if (list1SelectedValue == 'KANO STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('International Clinics and Hospital Ltd  ', 'International Clinics and Hospital Ltd  ');
+                list2.options[2] = new Option('Khadijat Memorial Hospital   ', ' Khadijat Memorial Hospital ');
+
+
+            }
+            else if (list1SelectedValue == 'KADUNA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option(' Manek Specialist Hospital ', 'Manek Specialist Hospital  ');
+                list2.options[2] = new Option(' Jowako Hospital  ', 'Jowako Hospital  ');
+
+
+            }
+            else if (list1SelectedValue == 'SOKOTO STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option(' Sahel Specialist Hospital ', ' Sahel Specialist Hospital ');
+                list2.options[2] = new Option(' Shepherd Specialist Clinic  ', 'Shepherd Specialist Clinic  ');
+
+
+            }
+            else if (list1SelectedValue == 'KEBBI STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('DDG Medical Center ', ' DDG Medical Center');
+
+
+
+            }
+            else if (list1SelectedValue == 'TARABA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('First Dominion Hospital  ', ' First Dominion Hospital ');
+
+            }
+            else if (list1SelectedValue == 'ZAMFARA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Daula Hospital and Maternity Home ', 'Daula Hospital and Maternity Home ');
+                list2.options[1] = new Option('Yariman Bakura Specialist Hospital  ', 'Yariman Bakura Specialist Hospital ');
+            }
+            else if (list1SelectedValue == 'KATSINA STATE') {
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('K-Dara Specialist Hospital   ', ' K-Dara Specialist Hospital ');
 
             }
         }
