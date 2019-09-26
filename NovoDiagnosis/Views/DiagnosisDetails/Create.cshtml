@@ -1,0 +1,654 @@
+﻿@model NovoDiagnosis.Models.DiagnosisDetails
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<style>
+
+   
+    * {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-font-smoothing:antialiased;
+    -o-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    }
+
+   
+
+    .container2 {
+    max-width:500px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    }
+
+    #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+    #contact {
+    background:#F9F9F9;
+    padding:25px;
+    margin:50px 0;
+    }
+
+    #contact h3 {
+    color: #F96;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+    }
+
+    #contact h4 {
+    margin:5px 0 15px;
+    display:block;
+    font-size:13px;
+    }
+
+    fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+    }
+
+    #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+    width:100%;
+    border:1px solid #CCC;
+    background:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    }
+
+    #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+    -webkit-transition:border-color 0.3s ease-in-out;
+    -moz-transition:border-color 0.3s ease-in-out;
+    transition:border-color 0.3s ease-in-out;
+    border:1px solid #AAA;
+    }
+
+    #contact textarea {
+    height:100px;
+    max-width:100%;
+    resize:none;
+    }
+
+    #contact button[type="submit"] {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#0CF;
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    font-size:15px;
+    }
+
+    #contact button[type="submit"]:hover {
+    background:#09C;
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+    }
+
+    #contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+    #contact input:focus, #contact textarea:focus {
+    outline:0;
+    border:1px solid #999;
+    }
+    ::-webkit-input-placeholder {
+    color:#888;
+    }
+    :-moz-placeholder {
+    color:#888;
+    }
+    ::-moz-placeholder {
+    color:#888;
+    }
+    :-ms-input-placeholder {
+    color:#888;
+    }
+
+
+</style>
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row mb">
+            <div class="col-lg-12">
+                <!-- /form-panel -->
+                <h3 align="centre" class="text-center">Book Appointment For Annual Medical Check</h3>
+
+                @{
+                    var user = await UserManager.GetUserAsync(User);
+                }
+
+                <div class="row mb">
+                    <!-- page start-->
+                    <div class="content-panel border rounded">
+                        <div class="adv-table">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3"></div>
+
+                            @{
+                                var Code = Guid.NewGuid().ToString("n").Substring(0, 8);
+
+
+                            }
+
+
+
+
+                            <p>
+                                <br /><br />
+                            </p>
+                            <p align="center">
+                                Kindly fill the form below to submit an appointment for medical check.<br />
+                                You will receive a confirmation email if your request is approved.
+                                <br />
+                                Ensure you check both inbox and spam for the mail.
+
+
+                            </p>
+
+                            <div class="container2">
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;<hr width="30%" align="center" />
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+
+                                        <input type="hidden" asp-for="FullName" class="form-control" value="@user.FullName" />
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="hidden" asp-for="StaffId" class="form-control" value="@user.StaffId" />
+                                        <span asp-validation-for="StaffId" class="text-danger"></span>
+                                    </div>
+
+                                    <h4>Food Type</h4>
+                                    <select class="form-control" id='firstList' name='firstList' onClick="getFoodItem()"></select>
+
+                                    <h4>Food Item</h4>
+                                    <select class="form-control" id='secondList' name='secondList'></select>
+
+                                    <div class="form-group">
+                                        <label asp-for="Provider" control-label">
+                                            Select Provider
+
+                                        </label>
+                                        <select name="Provider" class="form-control" required>
+
+                                            <option value="Lagos -Afriglobal Medicare-8,Mobolaji Bank Anthony Way Ikeja"> Lagos -Afriglobal Medicare-8,Mobolaji Bank Anthony Way Ikeja</option>
+
+                                            <option value="Lagos-Afriglobal Medicare -6 Olusesi Olugborogan Street,Eti-Osa East"> Lagos-Afriglobal Medicare -6 Olusesi Olugborogan Street,Eti-Osa East</option>
+
+                                            <option value="Lagos-Echolab-99 Ajose Adeogun Road, Victoria Island  ">Lagos-Echolab-99 Ajose Adeogun Road, Victoria Island  </option>
+
+                                            <option value="Ogun -Union Diagnostic - 37, Nawarudeen Isabo Road, Opposite Rev. Kuti Grammar School,Abeokuta">Ogun -Union Diagnostic - 37, Nawarudeen Isabo Road, Opposite Rev. Kuti Grammar School,Abeokuta</option>
+
+                                            <option value="Ogun-Ace Medicare Clinics-Km 4 Idiroko Road, Ota">Ogun-Ace Medicare Clinics-Km 4 Idiroko Road, Ota</option>
+
+                                            <option value="Ogun State -Mercy Group Clincs-Mercy Hospital Road, Behind UBA Building, Panseke Abeokuta">Ogun State -Mercy Group Clincs-Mercy Hospital Road, Behind UBA Building, Panseke Abeokuta</option>
+
+                                            <option value="Ogun State -Lanik Medical Center -31 Awokoya Street, Ijebu Ode "> Ogun State -Lanik Medical Center -31 Awokoya Street, Ijebu Ode</option>
+
+                                            <option value="Oyo
+                                                    -Union Diagnostic-9, Queen Elizabeth Road, Isolak Building, Mokola Round About, Mokola, Ibadan. ">
+                                                Ibadan -Union Diagnostic-9, Queen Elizabeth Road, Isolak Building, Mokola Round About, Mokola, Ibadan.
+                                            </option>
+
+                                            <option value="Oyo -Mecure Healthcare Ltd-5 Awosika Way, Old Bodija Ibadan  "> Oyo -Mecure Healthcare Ltd-5 Awosika Way, Old Bodija Ibadan  </option>
+
+                                            <option value="Ondo-Sijuwade Specialist Hospital-10, Sijuwade Baasegun Hospital Road, Akure, Ondo State "> Ondo-Sijuwade Specialist Hospital-10, Sijuwade Baasegun Hospital Road, Akure, Ondo State </option>
+
+                                            <option value="Ondo State -Hopeland Specialist Medical Center-No 1 Arikawe Street, Akure ">Akure, Ondo State -Hopeland Specialist Medical Center-No 1 Arikawe Street, Akure  </option>
+
+                                            <option value="Ekiti -Adetade Hospital -55, Okebola Street, Ajilosun Ado-Ekiti "> Ekiti -Adetade Hospital -55, Okebola Street, Ajilosun Ado-Ekiti </option>
+
+                                            <option value="Ekiti - Maternal and Child Hospital-Nova Road, Off Adebayo Road, Ado-Ekiti ">Ekiti - Maternal and Child Hospital-Nova Road, Off Adebayo Road, Ado-Ekiti  </option>
+
+                                            <option value="Osun - Union Diagnostic-4C Fagbewesa Street,Former Agric Building,Osogbo">Osun - Union Diagnostic-4C Fagbewesa Street,Former Agric Building,Osogbo</option>
+
+                                            <option value="Osun -Onward Hospital-Agundelewo Ilobu Road, Osogbo  "> Osun -Onward Hospital-Agundelewo Ilobu Road, Osogbo  </option>
+
+                                            <option value="Osun  -Living Hope Hospital-Parakin Obalufe Layout, 2 Ola-Olu Street, Eleyele Ile-Ife  ">Osun  -Living Hope Hospital-Parakin Obalufe Layout, 2 Ola-Olu Street, Eleyele Ile-Ife </option>
+
+                                            <option value="Kwara
+
+                                                -Union Diagnostic, Ilorin">
+                                                Kwara
+
+                                                -Union Diagnostic, Ilorin
+                                            </option>
+
+                                            <option value="Kwara
+
+                                            -Yusjib Industrial Medicare, Ilorin">
+                                                Kwara
+
+                                                -Yusjib Industrial Medicare, Ilorin
+                                            </option>
+
+                                            <option value="  Kogi  -Niger Hospital , Lokoja, Kogi">
+                                                Kogi  -Niger Hospital , Lokoja, Kogi
+
+                                            </option>
+
+                                            <option value="Nasarawa
+                                                 -Berith Specialist Hospital,
+                                                Kwamba Layout Suleja">
+                                                Nasarawa
+                                                -Berith Specialist Hospital,
+                                                Kwamba Layout Suleja
+                                            </option>
+
+                                            <option value="Nasarawa
+                                                -Citizen Hospital, Low Cost GRA Suleja">
+                                                Nasarawa
+                                                -Citizen Hospital, Low Cost GRA Suleja
+                                            </option>
+
+                                            <option value="Benue
+                                                -Sandra Hospital
+                                                Makurdi">
+                                                Benue
+                                                -Sandra Hospital
+                                                Makurdi
+                                            </option>
+
+                                            <option value="Plateau
+                                                 -Our Lady of Apostle,
+                                                Jos">
+                                                Plateau
+                                                -Our Lady of Apostle,
+                                                Jos
+                                            </option>
+
+                                            <option value=" Plateau
+                                                -Chilas, Jos">
+                                                Plateau
+                                                -Chilas, Jos
+                                            </option>
+
+                                            <option value="Jigawa
+                                                 -Al-Barka Hospital,
+                                                Dutse">
+                                                Jigawa
+                                                -Al-Barka Hospital,
+                                                Dutse
+                                            </option>
+
+                                            <option value="Nasarawa -Sauki Hospital Assakio Lafia">  Nasarawa -Sauki Hospital Assakio Lafia</option>
+
+                                            <option value="Abuja -Life Bridge Diagnostics "> Abuja -Life Bridge Diagnostics </option>
+
+                                            <option value="Abuja
+                                                -Dara Medical Center,
+                                                Garki">
+                                                Abuja
+                                                -Dara Medical Center,
+                                                Garki
+                                            </option>
+
+                                            <option value="Abia
+                                                -Springs Clinic, Aba">
+                                                Abia
+                                                -Springs Clinic, Aba
+                                            </option>
+
+                                            <option value=" Abia
+                                                -New Era Hospital , East Aba ">
+                                                Abia
+                                                -New Era Hospital , East Aba
+                                            </option>
+
+                                            <option value="Abia
+
+
+                                                -Obioma Hospital, Umuahia">
+                                                Abia
+
+
+                                                -Obioma Hospital, Umuahia
+                                            </option>
+
+                                            <option value="Enugu State -Dr. Nlogha Memorial Medical Center
+                                            , Enugu">
+                                                Enugu State -Dr. Nlogha Memorial Medical Center
+                                                , Enugu
+                                            </option>
+
+                                            <option value=" Enugu -Life Bridge Diagnostics, Enugu">
+                                                Enugu -Life Bridge Diagnostics, Enugu
+                                            </option>
+
+                                            <option value=" Anambra
+                                                 -Toronto Hospital, Onitsha,">
+                                                Anambra
+                                                -Toronto Hospital, Onitsha,
+                                            </option>
+
+                                            <option value="Anambra -
+                                                Awka Ifebi Medical Center, Awka">
+                                                Anambra -
+                                                Awka Ifebi Medical Center, Awka
+                                            </option>
+
+                                            <option value="Imo
+                                            -Ikenegbu Hospital, Owerri">
+                                                Imo
+                                                -Ikenegbu Hospital, Owerri
+                                            </option>
+
+                                            <option value="Imo
+                                                -Ezem Medical Center , Owerri">
+                                                Imo
+                                                -Ezem Medical Center , Owerri
+                                            </option>
+
+                                            <option value=" Ebonyi State -Christ the King Hospital, Abakaliki">
+                                                Ebonyi State -Christ the King Hospital, Abakaliki
+                                            </option>
+
+                                            <option value="Ebonyi -Mater Misericordiae Hospital,
+                                                Afikpo Ebonyi">
+                                                Ebonyi -Mater Misericordiae Hospital,
+                                                Afikpo Ebonyi
+                                            </option>
+
+                                            <option value="  Cross Rivers
+
+                                                -Faith Foundation Specialist Clinic, Calabar">
+                                                Cross Rivers
+
+                                                -Faith Foundation Specialist Clinic, Calabar
+                                            </option>
+
+                                            <option value=" Cross Rivers
+                                                -Aruba Specialist Hospital, Calabar">
+                                                Cross Rivers
+                                                -Aruba Specialist Hospital, Calabar
+                                            </option>
+
+                                            <option value="Cross Rivers
+                                                -Bakor Hospital, Nde Ikom">
+                                                Cross Rivers
+                                                -Bakor Hospital, Nde Ikom
+                                            </option>
+
+                                            <option value=" Akwa Ibom -
+                                                St Anthanasius' Hospital Ltd, Abak Road Uyo">
+                                                Akwa Ibom -
+                                                St Anthanasius' Hospital Ltd, Abak Road Uyo
+                                            </option>
+
+                                            <option value=" Akwa Ibom -Nduye Medical Services, Eket Akwa Ibom">
+                                                Akwa Ibom -Nduye Medical Services, Eket Akwa Ibom
+                                            </option>
+
+                                            <option value="Rivers
+                                                -Noxford Hospital, Port Harcourt">
+                                                Rivers
+                                                -Noxford Hospital, Port Harcourt
+                                            </option>
+
+                                            <option value="Rivers
+                                            -St. Martins Hospital, Port Harcourt">
+                                                Rivers
+                                                -St. Martins Hospital, Port Harcourt
+                                            </option>
+
+                                            <option value="Bayelsa
+
+                                                -Crest Consultants Clinic, Yenogoa">
+                                                Bayelsa
+
+                                                -Crest Consultants Clinic, Yenogoa
+
+                                            </option>
+
+                                            <option value=" Bayelsa
+                                                -Gloryland Hospital, Ovom Yenegoa">
+                                                Bayelsa
+                                                -Gloryland Hospital, Ovom Yenegoa
+
+                                            </option>
+
+                                            <option value="Edo -
+                                                Edi International Clinic, Benin">
+                                                Edo -
+                                                Edi International Clinic, Benin
+                                            </option>
+
+                                            <option value="Edo
+                                                -Narrow Way Clinic, Aduwawa, Benin">
+                                                Edo
+                                                -Narrow Way Clinic, Aduwawa, Benin
+                                            </option>
+
+                                            <option value="
+                                                    Delta
+                                                    -West End Diagnostic Hospital
+                                                    Effurun, Warri ">
+                                                Delta
+                                                -West End Diagnostic Hospital
+                                                Effurun, Warri
+                                            </option>
+
+                                            <option value="Delta
+                                                -Twins City and Diagnostics CenterAsaba">
+                                                Delta
+                                                -Twins City and Diagnostics CenterAsaba
+                                            </option>
+
+                                            <option value="Borno -
+                                            Borno Medical Center">
+                                                Borno -
+                                                Borno Medical Center
+                                            </option>
+
+                                            <option value="  Gombe -Sabana Hospital,Federal Low Cost Road">
+                                                Gombe -Sabana Hospital,Federal Low Cost Road
+                                            </option>
+
+                                            <option value=" Adamawa
+                                                -City Medical Center, Zango Area, Yobe">
+                                                Adamawa
+                                                -City Medical Center, Zango Area, Yobe
+                                            </option>
+
+                                            <option value="Adamawa
+                                                 -Peace Hospital , Yola">
+                                                Adamawa
+                                                -Peace Hospital , Yola
+                                            </option>
+
+                                            <option value="Adamawa
+                                            -New Boshang Clinic and Maternity, Yola">
+                                                Adamawa
+                                                -New Boshang Clinic and Maternity, Yola
+                                            </option>
+
+                                            <option value="Bauchi -NAF Reference Hospital, Bauchi">
+                                                Bauchi -NAF Reference Hospital, Bauchi
+                                            </option>
+
+                                            <option value="Kano -International Clinics and Hospital Ltd, Kano">
+                                                Kano -International Clinics and Hospital Ltd, Kano
+                                            </option>
+
+                                            <option value="Kano -Khadijat Memorial Hospital, Kano">
+                                                Kano -Khadijat Memorial Hospital, Kano
+                                            </option>
+
+                                            <option value="Kaduna -Manek Specialist Hospital, Kaduna ">
+                                                Kaduna -Manek Specialist Hospital, Kaduna
+                                            </option>
+
+                                            <option value=" Kaduna -Jowako Hospital,  Birnin Kebbi ">
+                                                Kaduna -Jowako Hospital,  Birnin Kebbi
+                                            </option>
+
+                                            <option value="Sokoto -Sahel Specialist Hospital, Sokoto ">
+                                                Sokoto -Sahel Specialist Hospital, Sokoto
+
+                                            </option>
+
+                                            <option value="Sokoto -Shepherd Specialist Clinic, Sokoto">
+                                                Sokoto -Shepherd Specialist Clinic, Sokoto
+                                            </option>
+
+                                            <option value=" Kebbi -
+                                                -DDG Medical Center,  Birnin Kebbi">
+                                                Kebbi -
+                                                -DDG Medical Center,  Birnin Kebbi
+                                            </option>
+
+                                            <option value="Taraba
+                                                -First Dominion Hospital,
+                                                Jaling ">
+                                                Taraba
+                                                -First Dominion Hospital,
+                                                Jalingo
+                                            </option>
+
+                                            <option value="Zamfara  -Daula Hospital and Maternity Home">Zamfara  -Daula Hospital and Maternity Home</option>
+
+                                            <option value="Zamfara
+                                                -Yariman Bakura Specialist Hospital,
+                                                Gusau ">
+                                                Zamfara
+                                                -Yariman Bakura Specialist Hospital,
+                                                Gusau
+                                            </option>
+
+                                            <option value="Katsina -
+                                            Gidan Dawa -K-Dara Specialist Hospital">
+                                                Katsina -
+                                                Gidan Dawa -K-Dara Specialist Hospital
+                                            </option>
+
+                                        </select>
+
+
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        <label asp-for="Email" class="control-label"></label>
+                                        <input asp-for="Email" class="form-control" value="@user.Email" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PhoneNumber" class="control-label"></label>
+                                        <input asp-for="PhoneNumber" class="form-control" value="@user.PhoneNumber" />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="AppointmentDate" class="control-label"></label>
+                                        <input asp-for="AppointmentDate" class="form-control" min="2019-09-25" max="2019-11-01" />
+                                        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="AppointmentTime" class="control-label"></label>
+                                        <input asp-for="AppointmentTime" class="form-control" />
+                                        <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="AuthorizationCode" class="control-label"></label>
+                                        <input asp-for="AuthorizationCode" class="form-control" value="NHA-@Code-UNAMC" readonly />
+                                        <span asp-validation-for="AuthorizationCode" class="text-danger"></span>
+                                    </div>
+
+
+
+
+
+                                    <div class="form-group">
+                                        <label asp-for="PresentingComplain" class="control-label"></label>
+                                        <textarea asp-for="PresentingComplain" class="form-control"></textarea>
+                                        <span asp-validation-for="PresentingComplain" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" value="Create Appointment" class="btn btn-facebook" />
+                                    </div>
+                                </form>
+
+                            </div>
+
+                            <div>
+                                <a asp-action="Index">Back to List</a>
+                            </div>
+
+
+
+                            @section Scripts {
+                                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section><section></section>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var list1 = document.getElementById('firstList');
+
+            list1.options[0] = new Option('--Select--', '');
+            list1.options[1] = new Option('Snacks', 'Snacks');
+            list1.options[2] = new Option('Drinks', 'Drinks');
+        });
+        function getFoodItem() {
+
+            var list1 = document.getElementById('firstList');
+            var list2 = document.getElementById("secondList");
+            var list1SelectedValue = list1.options[list1.selectedIndex].value;
+
+            if (list1SelectedValue == 'Snacks') {
+
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Burger', 'Burger');
+                list2.options[2] = new Option('Pizza', 'Pizza');
+                list2.options[3] = new Option('Hotdog', 'Hotdog');
+                list2.options[4] = new Option('Potato Chips', 'Potato Chips');
+                list2.options[5] = new Option('French Fries', 'French Fries');
+
+            }
+            else if (list1SelectedValue == 'Drinks') {
+
+                list2.options.length = 0;
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Coca Cola', 'Coca Cola');
+                list2.options[2] = new Option('7up', '7up');
+                list2.options[3] = new Option('Pepsi', 'Pepsi');
+                list2.options[4] = new Option('Coffee', 'Coffee');
+                list2.options[5] = new Option('Tea', 'Tea');
+
+            }
+        }
+    </script>

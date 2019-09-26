@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIuW+vetZm0+pwJmBmmz7UAAAAAACAAAAAAAQZgAAAAEAACAAAAB0W4rCyffkaO6/rJSg2EQ8p7GxPbRCD9vRrYCKf3wBgwAAAAAOgAAAAAIAACAAAADwAMgU8t6l9A+cH8op0zNSC4B1aMzut7VaDfVPw8dSzIAAAAD5tzMqkGAHBLmkENG8zH6Cy40PYGn8Kqshhfc3PtF3seoP0b3YADlG7VCH95tefOMQHi0OO4riNZwkORewSDuXELKgfwuupR43DX/0w3xDLAftTGQDGiXTk+3Wz26n/z0Gm4nB1VpsQcnT7mC0L9UQAErzOQR/Fz617NEbHeDRIkAAAAAVoz/mmr7JQZCvHb3wtHcHKMHuwDoLlfSf8DLONqAcLK4VCQ+AQVRgTyx/L9S9rapEPKm8BPGk/MznxwuosXXw</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=novoerpdb.database.windows.net%3bInitial Catalog=NovoDiag%3bIntegrated Security=False%3bPersist Security Info=False%3bUser ID=novoadmin%3bPassword=%27N0v0he%40lth1234%2a%27%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

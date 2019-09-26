@@ -1,0 +1,138 @@
+﻿@model IEnumerable<NovoDiagnosis.Models.DiagnosisDetails>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row mb">
+            <div class="col-lg-12">
+                <!-- /form-panel -->
+                <h3 align="centre" class="text-center">Annual Medical Check</h3>
+
+                @{
+                    var user = await UserManager.GetUserAsync(User);
+
+                }
+
+                <div class="row mb">
+                   
+                        <div class="col-md-6">
+                            <!-- page start-->
+                            <div class="content-panel border rounded">
+                                <div class="adv-table">
+                                    <br /><br /><br /><br /><br />
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        <h4 align="center">Welcome to Novo Medical Check Management System.</h4>
+                                        <p align="center">Brief information on how to use this web application</p><hr width="30%" /><br /><br><br>
+                                        <ol >
+                                            <li>Log into the system with your Staff Id and Password given to you.</li>
+                                            <li>Click here to book an appointment or make use of the navigator (Create Appointment) on the left side of the screen to book appointment</li>
+                                            <li>An authorization code will be generated for you after successful booking and email sent to your email address with your authorization code.</li>
+                                            <li> Print the authorization code sent to your email.</li>
+                                            <li>Present the printed authorization letter at the hospital whenever you go for the annual medical check</li>
+                                            <li>Login to this application after you have completed the test and update your appointment to completed medical check</li>
+                                            <li>Note that you will receive a reminder every three days till your medical check is updated to completed </li>
+                                        </ol>
+
+                                        <br/>
+                                        <h4 align="center">For the completion of your Novo HMO registration Click <a href="http://hub.novohealthafrica.org/reghome?companyid=132" target="_blank">Here</a></h4>
+                                        
+                                    }
+                                    else
+                                    {
+                                        <h4 align="center">Kindly Sign In </h4>
+                                    }
+
+
+
+
+
+
+                                   
+                                    <br /><br /><br /><br /><br />
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+        </div>
+
+
+        </div>
+
+    </section>
+</section>
+
+
+@section Scripts{
+    <script src="~/js/claim.js"></script>
+}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    var dataTable;
+    $(document).ready(function () {
+        loadDataTable();
+    });
+    (function ($) {
+        $("#claims").DataTable({
+            ajax: {
+
+
+            });
+    })(jQuery);
+
+    function guid(e) {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+
+
+        if (e == 1) {
+            return 'NHA-NHIS-' + s4() + s4() + '-' + s4();
+        }
+        return 'NHA-' + s4() + s4() + '-' + s4();
+
+        // return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        //s4() + '-' + s4() + s4() + s4();
+    }
+    function guidCus(e) {
+
+        function s5() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        function s4() {
+            return Date.now().toString().substring(8, 13);
+        }
+
+
+        if (e == 1) {
+            return 'NHA-NHIS-' + s5() + '-' + s4() + $('#userinitial').val();
+        }
+        return 'NHA-' + s5() + '-' + s4() + $('#userinitial').val();
+
+        // return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        //s4() + '-' + s4() + s4() + s4();
+    }
+</script>
+
+
